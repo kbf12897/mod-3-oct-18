@@ -9,4 +9,4 @@ Projects solutions, content outlines and other resources for aA's mod 3.
 | Week 9: Client-side JS for Interactivity (Frontend) | Browser Basics, Element Selection and Manipulation, Event Handling, Browser Storage, Networking |
 
 ## Lecture
-All lectures can be accessed [here](https://drive.google.com/drive/folders/1qgF5Qzgx5xW-VrugPoWA5gfTFoYvmUHh?usp=sharing)
+All lectures can be accessed [here](https://drive.google.com/drive/folders/1T20-IbGbz1FI7eODoEv5RTwPDtbl4kQB?usp=sharing)
