@@ -5,7 +5,7 @@ Make the title a sans serif font
 Show some of the generic font families: serif, sans-serif, monospace, cursive, and fantasy
 */
 .title {
-    font-family: serif;
+    font-family: sans-serif;
 }
 
 /* Make the body tag have light gray background */
@@ -14,7 +14,7 @@ body {
 }
 
 /* Use the compound class selector for div red-border white-background */
-.red-border.white-background {
+.white-background.red-border {
     border: 1px solid red;
     background-color: white;
 }
@@ -30,34 +30,38 @@ body {
 }
 
 /* Make li that are not selected color gray https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes*/
-li:not(.selected) {
+/* li:not(.selected) {
     color: gray
-}
+} */
 
 /* Adjacent sibling selector */
-li.selected + li.selected {
+/* li + li + li {
     color: red;
-}
+} */
 
 /* Change the pointer when hovering over the button, hover as a pseudo class */
 button:hover {
     cursor: pointer;
 }
 
+li {
+    color: red;
+}
+
+li {
+    color: blue;
+}
 /* Which one has more specificity id or tag + class */
-div.a-div {
+
+
+#a-div.a-div {
     width: 100px;
     height: 100px;
     background-color: blue;
     border-radius: 50%;
 }
 
-#a-div {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    border-radius: 50%;
-}
+
 
 
 /* 
