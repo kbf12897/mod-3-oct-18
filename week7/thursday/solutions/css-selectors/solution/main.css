@@ -6,12 +6,15 @@
 }
 
 /* Phase 2 */
-.pagenum {
+/* .pagenum {
     position: absolute;
     right: 1%;
     font-size: small;
-}
+} */
 
+.pagenum-container {
+    text-align: end;
+}
 /* Phase 3 */
 p {
     margin-top: .75em;
@@ -25,8 +28,12 @@ pre {
 }
 
 /* Phase 4 */
-a:link {
+:any-link {
     text-decoration: none;
+}
+
+a:visited {
+    text-decoration: underline;
 }
 
 /* Bonus Phase */

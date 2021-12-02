@@ -36,13 +36,16 @@ span {
     border: 1px solid red;
     background-color: white;
     height: 100px;
+    display: inline-block;
 }
 
 .inline-block {
     border: 1px solid red;
-    background-color: white;
+    /* background-color: white; */
     height: 100px;
     display: inline-block;
+    margin-right: 100px;
+    /* padding-right: 100px; */
 }
 
 /* Parts of the box: content, padding, border and margin */
@@ -52,13 +55,13 @@ span {
     display: inline-block;
     padding: 20px;
     border: 10px solid red;
-    margin: 100px;
+    margin: 100px auto;
 }
 
 .neighbor2 {
     border: 1px solid red;
     background-color: white;
-    display: inline-block;
+    display: block;
 }
 
 
@@ -141,7 +144,7 @@ In box-sizing: border-box, it also includes padding, and border
 is positioned in a document. */
 .boxes-container {
     border: 1px solid red;
-    /* position: relative; */
+    position: relative;
 }
 
 .yellow-box {
@@ -153,22 +156,24 @@ is positioned in a document. */
     margin: 10px;
 }
 
+
 .red-box {
     width: 100px;
     height: 100px;
     display: inline-block;
     background-color: pink;
     border: 5px solid red;
-    margin: 10px;
+    /* margin: 10px; */
 
     position: static;
     /* position: relative;
-    top: 40px; 
-    left: 40px;
-   
+    top: 0px; 
+    left: 40px; */
+    
+/*    
     position: absolute;
-    top: 40px; 
-    left: 40px;
+    top: 0px;
+    left: 0px;
     
     position: fixed;
     top: 40px;
@@ -182,7 +187,12 @@ to the normal flow of the document, and then offset
 relative to its nearest scrolling ancestor and 
 containing block (nearest block-level ancestor) 
 */
-/* .subheading {
+
+.sticky-container {
+    height: 500px;
+    border: 1px solid red;
+}
+.subheading {
     position: sticky;
     top: 20px;
-} */
+}
