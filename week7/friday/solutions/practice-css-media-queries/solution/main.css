@@ -121,6 +121,7 @@ header {
 
 /*!!START */
 @media print {
+
     header, .sidebar, .image-box {
         display: none;
         visibility: hidden;
