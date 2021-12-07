@@ -43,7 +43,7 @@ const server = http.createServer((req, res) => {
                 }, {});
             console.log(req.body);
         }
-        if (req.method === "POST" && req.url === "/tasks/5") {
+        if (req.method === "POST" && req.url === "/tasks") {
             console.log(req.body);
             database.push(req.body);
             res.statusCode = 302;
