@@ -9,6 +9,19 @@
   - `GET /posts`
 - Access the edit page for a post
   - `GET /posts/:postId/edit`
+
+awesomesite.com
+GET /             <html> <a href="/users/new">Sign up</a>
+
+if (req.method === "GET" && req.url === "/") {
+  res.statusCode = 200;
+  res.setHeader("content-type", "text/html");
+  res.end()
+}
+
+GET /users/new    <html> <form action="/users" method="POST"><input name="email"><button>Submit
+POST /users  email=jortiz@appacademy.io   302 location "/"
+GET /             <html> <h1>Hello jortiz@appacademy.io</h1>
 - Access the create page for a post
   - `GET /posts/new`
 - Create a new user
