@@ -44,7 +44,9 @@ const server = http.createServer((req, res) => {
     });
 
     // app.use(express.urlencoded);
-
+    res.statusCode = 404;
+    res.setHeader("Content-Type", "text/html");
+    return res.end(`<html><h1>Page not found</h1></html>`);
     
 });
 
