@@ -56,15 +56,17 @@ const server = http.createServer((req, res) => {
       res.write('Dog create form page');
       return res.end();
     }
-    // GET /dogs/:dogId // ex: /dogs/3
+    // GET /dogs/:dogId // ex: /dogs/5
     if (req.method === 'GET' && req.url.startsWith('/dogs/')) {
       const urlParts = req.url.split('/'); // ['', 'dogs', '3']
       if (urlParts.length === 3) {
         const dogId = urlParts[2];
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
-        res.write('Dog details for dogId: ');
-        res.write(dogId);
+        // const dogInfo = Dog.findByPk(dogId)
+        res.write(`Dog details for dogId: ${dogId}`);
+        res.write(`Additional stuff I'm adding`);
+        
         return res.end();
       }
     }
@@ -84,8 +86,8 @@ const server = http.createServer((req, res) => {
         return res.end();
       }
     }
-    // GET /dogs/:dogId/edit // /dogs/3/edit
-    if (req.method === 'GET' && req.url.slice(0, 6) === '/dogs/') {
+    // GET /dogs/:dogId/edit // /dogs/3/edit  
+    if (req.method === 'GET' && req.url.startsWith('/dogs/')) {
       const urlParts = req.url.split('/');
       if (urlParts.length === 4 && urlParts[3] === 'edit') {
         const dogId = urlParts[2];

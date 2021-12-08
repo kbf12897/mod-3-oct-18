@@ -1,10 +1,17 @@
 const http = require('http');
 const fs = require("fs");
 
+let database = []; // { tasks: 'Reading', time: '10:40', taskId: 1 }, { tasks: 'Playing', time: '10:40', taskId: 2 }
+let taskId = 1;
 const server = http.createServer((req, res) => {
     console.log(`${req.method} ${req.url}`);
     if (req.method === "GET" && req.url === "/") {
-        const resBody = fs.readFileSync("index.html");
+        const htmlPage = fs.readFileSync("index.html", "utf-8");
+        const taskList = database.map(task => {
+            return `<li>${task["tasks"]} - ${task["time"]}</li>`;
+        });
+        
+        const resBody = htmlPage.replace("#{tasks}", taskList.join(""));
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/html");
         return res.end(resBody);
@@ -35,18 +42,24 @@ const server = http.createServer((req, res) => {
                 }, {}); // {'tasks': 'Reading, 'time': '08:00'}
                 
             if (req.method === "POST" && req.url === "/tasks") {
+                req.body.taskId = taskId;
+                taskId++;
                 console.log(req.body);
+
+                database.push(req.body);
                 res.statusCode = 302;
                 res.setHeader("Location", "/");
                 return res.end();
             }
+
+            res.statusCode = 404;
+            res.setHeader("Content-Type", "text/html");
+            return res.end(`<html><h1>Page not found</h1></html>`);
         }
     });
 
     // app.use(express.urlencoded);
-    res.statusCode = 404;
-    res.setHeader("Content-Type", "text/html");
-    return res.end(`<html><h1>Page not found</h1></html>`);
+   
     
 });
 
