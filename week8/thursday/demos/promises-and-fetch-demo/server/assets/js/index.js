@@ -14,41 +14,45 @@ window.addEventListener("DOMContentLoaded", ev => {
         localStorage.setItem("mode", selection);
     });
     // !!START
-    const res = fetch("/products")
-    console.log(res);
+    console.log(document.querySelector('a'));
+    document.querySelector('a').addEventListener('click', ev => {
+        console.log('here');
+        ev.preventDefault();
+        fetch("/products")
+            .then(res => res.text())
+            .then(txt => document.body.innerHTML = txt);
+    });
+    // document.body
 
-    fetch("/products")
-        .then(res => res.text())
-        .then(txt => console.log(1, txt));
 
-    (async function() {
-        const res = await fetch("/products");
-        const txt = await res.text();
-        console.log(2, txt);
-    })();
+    // (async function() {
+    //     const res = await fetch("/products");
+    //     const txt = await res.text();
+    //     console.log(2, txt);
+    // })();
 
-    fetch("/products", {
-        method: "POST",
-        body: "name=Caribbean+Delight+Coffee&description=Made+by+Manatee+Coffee&price=11%2E99&categories=grocery",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        }
-    }).then(res => {
-        console.log({
-            status: res.status,
-            location: res.headers.get('location'),
-            redirected: res.redirected,
-            url: res.url
-        });
-    })
+    // fetch("/products", {
+    //     method: "POST",
+    //     body: "name=Caribbean+Delight+Coffee&description=Made+by+Manatee+Coffee&price=11%2E99&categories=grocery",
+    //     headers: {
+    //         "Content-Type": "application/x-www-form-urlencoded"
+    //     }
+    // }).then(res => {
+    //     console.log({
+    //         status: res.status,
+    //         location: res.headers.get('location'),
+    //         redirected: res.redirected,
+    //         url: res.url
+    //     });
+    // })
 
-    setTimeout(() => console.log("10 seconds passed"), 10*1000);
-    function wait(ms) {
-        return new Promise(resolve => {
-            setTimeout(resolve, ms);
-        });
-    }
-    wait(10*1000).then(() => console.log("10 seconds passed"));
+    // setTimeout(() => console.log("10 seconds passed"), 10*1000);
+    // function wait(ms) {
+    //     return new Promise(resolve => {
+    //         setTimeout(resolve, ms);
+    //     });
+    // }
+    // wait(10*1000).then(() => console.log("10 seconds passed"));
     // !!END
 });
 
